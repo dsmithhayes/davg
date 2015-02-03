@@ -13,10 +13,15 @@
 
 #define MAX_BUFFER  1024
 
+int intsum(
+    double sum,
+    double total
+);
+
 int main(int argc, char *argv[])
 {
     /* Declarations */
-    int     i;
+    short   i;
     int     input_length;
     double  total = (double)(argc - 1);
     double  sum = 0.0;
@@ -32,7 +37,7 @@ int main(int argc, char *argv[])
             sum += atof(argv[i]);
 
         fprintf(stdout, "%f\n", (sum / total));
-        return (int)((int)sum / (int)total);
+        return intsum(sum, total);
     }
     else {              /* use stdin */
         total = 0.0;
@@ -48,8 +53,13 @@ int main(int argc, char *argv[])
         }
 
         fprintf(stdout, "%f\n", (sum / total));
-        return (int)((int)sum / (int)total);
+        return intsum(sum, total);
     }
 
     return 0;
+}
+
+int intsum(double sum, double total)
+{
+    return (int)((int)sum / (int)total);
 }
